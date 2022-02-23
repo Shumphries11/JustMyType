@@ -86,7 +86,7 @@ $(document).keypress(function (event) {
 
                 let numberOfWords = 54;
 
-                let wpm = Math.round(numberOfWords / mins - 2 * numberOfMistakes);
+                let wpm = numberOfWords / mins - 2 * numberOfMistakes;
 
                 let results = confirm(`You typed ${wpm} words per minute, would you like to try again?`);
 
