@@ -52,7 +52,9 @@ $('#target-letter').text(currentLetter);
 $(document).keypress(function (event) {
     if (timerOn === false) {
         startDate = new Date();
+        console.log(startDate);
         startTime = startDate.getTime();
+        console.log(startTime);
         timerOn = true;
     }
 
@@ -81,12 +83,17 @@ $(document).keypress(function (event) {
 
             if (index === sentences.length) {
                 let endDate = new Date();
+                console.log(endDate);
                 let endTime = endDate.getTime();
+                console.log(endTime);
                 let mins = (endTime - startTime) / 60000;
+                console.log(mins);
 
                 let numberOfWords = 54;
 
-                let wpm = numberOfWords / mins - 2 * numberOfMistakes;
+                let wpm = Math.round(numberOfWords / (mins - 2 * numberOfMistakes));
+
+                console.log(wpm);
 
                 let results = confirm(`You typed ${wpm} words per minute, would you like to try again?`);
 
